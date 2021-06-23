@@ -49,3 +49,22 @@ List<Video> getFakeVideos() {
     ),
   ];
 }
+
+//VideoSort ne permettra d'avoir
+//qu'une des 3 valeurs qu'il énumere
+
+enum VideoSort {
+  id,
+  name,
+  duration
+  //par exemple pour avoir le nom on fera VideoSort.name
+}
+
+//extension sur une enumerat
+extension ParseEnumName on VideoSort {
+  String filterName() {
+    //si par exemple "VideoSort.duration"
+    //on ne retourne que la partie de droite du poinr
+    return this.toString().split('.').last;
+  }
+}

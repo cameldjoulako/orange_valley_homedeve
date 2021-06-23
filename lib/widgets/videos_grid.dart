@@ -55,14 +55,14 @@ class _VideoTile extends StatelessWidget {
               child: ClipRRect(
                 //pour avoir des rebords arrondis dans le container
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
+                /* child: Image.asset(
                   "images/homedeve.png",
                   fit: BoxFit.cover,
-                ),
-                /*  child: Image.network(
+                ), */
+                child: Image.network(
                   imageUrl,
                   fit: BoxFit.cover,
-                ), */
+                ),
               ),
             ),
           ),

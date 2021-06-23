@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:homedeve_orange_valley_caa/models/video.dart';
+import 'package:homedeve_orange_valley_caa/pages/video_player_page.dart';
 import 'package:homedeve_orange_valley_caa/utils/constants.dart';
 
 import 'package:google_fonts/google_fonts.dart';
@@ -81,23 +82,42 @@ class _VideoDetail extends StatelessWidget {
 //---------------------------------------------------------
 class _DetailsPoster extends StatelessWidget {
   final posterUrl;
-  _DetailsPoster({this.posterUrl});
+  final videoUrl;
+  _DetailsPoster({this.posterUrl, this.videoUrl});
 
   @override
   Widget build(BuildContext context) {
     return Hero(
       tag: posterUrl,
-      child: Container(
-        width: double.infinity,
-        height: 200,
-        child: Image.asset(
-          "images/homedeve.png",
-          fit: BoxFit.cover,
+      child: GestureDetector(
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => VideoPlayerScreen(url: videoUrl),
+          ),
         ),
-        /* child: Image.network(
-          posterUrl,
-          fit: BoxFit.cover,
-        ), */
+        child: Stack(children: [
+          Container(
+            width: double.infinity,
+            height: 200,
+            /* child: Image.asset(
+              "images/homedeve.png",
+              fit: BoxFit.cover,
+            ), */
+            child: Image.network(
+              posterUrl,
+              fit: BoxFit.cover,
+            ),
+          ),
+          //Icone de lecture
+          Center(
+            child: Icon(
+              Icons.play_circle_outline,
+              size: 200,
+              color: Colors.white70,
+            ),
+          ),
+        ]),
       ),
     );
   }

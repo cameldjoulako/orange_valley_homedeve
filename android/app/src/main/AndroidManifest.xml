@@ -2,6 +2,8 @@
     package="com.example.homedeve_orange_valley_caa">
    <application
         android:label="homedeve_orange_valley_caa"
+        android:usesCleartextTraffic="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -36,8 +38,8 @@
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
             android:name="flutterEmbedding"
-            android:value="2" />      
+            android:value="2" />
     </application>
     
-    <!-- <uses-permission android:name="android.permission.INTERNET" />  --><!-- This Line -->
+    <uses-permision android:name="android.permission.INTERNET" />
 </manifest>
